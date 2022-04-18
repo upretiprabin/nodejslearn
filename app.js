@@ -6,6 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var authorRouter = require('./routes/authors');
+var userApi = require('./routes/userApi');
+var enterpriseApi = require('./routes/enterpriseApi');
+
+// var bootstrap = require('./mongodb/bootstrap')
 
 var app = express();
 
@@ -28,6 +32,8 @@ app.use((req,res,next)=>{
 
 
 app.use('/authors', authorRouter);
+app.use('/user', userApi);
+app.use('/enterprise', enterpriseApi);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
